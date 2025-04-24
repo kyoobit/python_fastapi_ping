@@ -2,6 +2,7 @@
 -r requirements.txt
 # Required for continuous integration
 pytest
+httpx
 black
 coverage
 flake8
