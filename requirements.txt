@@ -1,0 +1,5 @@
+# Required for application functionality
+fastapi
+pydantic
+pydantic-settings
+uvicorn
