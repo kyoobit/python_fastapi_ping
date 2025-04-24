@@ -7,11 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from config import settings
-
-# from ping import ?
+from handlers import ping
 
 app = FastAPI()
-# app.include_router(ping.router)
+app.include_router(ping.router)
 
 app.add_middleware(
     CORSMiddleware,
