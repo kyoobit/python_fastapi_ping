@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "WARNING"
     RELOAD: bool = False
 
-    class Config:
+    class ConfigDict:
         env_file = ".env"
         # env_prefix = "MYAPP_"  # Use a prefix to avoid namespace collisions
 
