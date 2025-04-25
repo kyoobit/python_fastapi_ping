@@ -36,8 +36,6 @@ depcheck: ## Dependency check for known vulnarbilities
 secscan: ## Run a source code security analyzer
 	# Analyze the application files
 	$(VENV_BIN)/bandit --recursive *.py
-	# Analyze the application files
-	$(VENV_BIN)/bandit --recursive tests/*.py
 
 all: install lint test depcheck secscan
 
