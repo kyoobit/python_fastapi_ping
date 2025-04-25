@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fastapi-ping
+  namespace: fastapi-ping
+spec:
+  rules:
+    - host: fastapi-ping.microk8s.lab
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: fastapi-ping
+                port:
+                  number: 8000

@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fastapi-ping
+  namespace: fastapi-ping
+spec:
+  containers:
+    - name: fastapi-ping
+      image: ghcr.io/kyoobit/fastapi-ping:latest
+      args:
+        - --log-level
+        - warning
+      ports:
+        - containerPort: 8000
+          name: "fastapi-ping"

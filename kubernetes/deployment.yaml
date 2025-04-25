@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fastapi-ping
+    version: latest
+  name: fastapi-ping
+  namespace: fastapi-ping
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-ping
+  template:
+    metadata:
+      labels:
+        app: fastapi-ping
+    spec:
+      containers:
+        - name: fastapi-ping
+          image: ghcr.io/kyoobit/fastapi-ping:latest
+          args:
+            - --log-level
+            - warning
+          ports:
+            - containerPort: 8888
+              name: "fastapi-ping"
