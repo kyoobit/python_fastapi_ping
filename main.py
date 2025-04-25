@@ -2,15 +2,15 @@ import uvicorn
 
 from fastapi import FastAPI, Request
 from fastapi.responses import Response
-from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from config import settings
-from handlers import ping
+from handlers.ping import router as ping_router
+
 
 app = FastAPI()
-app.include_router(ping.router)
+app.include_router(ping_router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -39,5 +39,6 @@ if __name__ == "__main__":
         "main:app",
         host=f"{settings.API_IPADDRESS}",
         port=settings.API_PORT,
+        log_level=settings.log_level,
         reload=settings.RELOAD,
     )
